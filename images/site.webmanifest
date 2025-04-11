@@ -1,0 +1,19 @@
+{
+    "name": "Hera Saúde Integrativa", // <-- Nome completo preenchido
+    "short_name": "Hera Saúde", // <-- Sugestão de nome curto (ajuste se preferir outro)
+    "icons": [
+      {
+        "src": "/android-chrome-192x192.png", // Verifique se este caminho está correto!
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/android-chrome-512x512.png", // Verifique se este caminho está correto!
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#ffffff", // Pode ajustar se tiver uma cor tema específica
+    "background_color": "#ffffff", // Pode ajustar se tiver uma cor de fundo específica
+    "display": "standalone"
+  }
