@@ -103,19 +103,8 @@ section { padding: 5rem 0; }
 .services__grid .service-card:nth-child(even) .service-card__title { color: var(--accent-color); }
 
 /* Professionals Section */
-.professionals__grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Padrão: 1 coluna (Mobile) */
-    gap: 2.5rem;
-    margin-top: 2.5rem;
-}
-.professional-card {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
-    background-color: #FFFFFF;
-}
+.professionals__grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2.5rem; }
+.professional-card { border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: var(--box-shadow); background-color: #FFFFFF; }
 .professional-card__inner { display: flex; align-items: flex-start; gap: 1.5rem; }
 .professional-card__image-wrapper { flex-shrink: 0; }
 .professional-card__img { width: 120px; height: 120px; border-radius: var(--border-radius); object-fit: cover; margin: 0; border: none; box-shadow: none; }
@@ -139,7 +128,7 @@ section { padding: 5rem 0; }
 .testimonial-card__time { font-size: 0.8rem; color: var(--grey-text); margin-left: auto; padding-left: 0.5rem; white-space: nowrap; }
 
 /* Final CTA / Form Section */
-/* ... (mantém o restante do CSS igual ao bloco anterior) ... */
+/* ... (mantém o restante igual) ... */
 .landing-page__final-cta { padding: 5rem 0; }
 .final-cta__container { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: flex-start; }
 .final-cta__intro-text p { color: var(--grey-text); font-size: 1rem; }
@@ -176,96 +165,43 @@ option { color: var(--dark-text); }
 
 /* Footer */
 .landing-page__footer { background-color: var(--light-bg); color: var(--grey-text); padding: 4rem 0 2rem 0; font-size: 0.9rem; border-top: 1px solid var(--border-color); }
-.footer__container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 2rem; }
-.footer__branding, .footer__company-info, .footer__links { flex: 1 1 200px; margin-bottom: 1.5rem; }
-.footer__branding { display: flex; flex-direction: column; align-items: center; }
+.footer__container {
+    display: flex;
+    flex-wrap: wrap;
+    /* --- MUDANÇA ALINHAMENTO FOOTER --- */
+    justify-content: space-evenly; /* Distribui espaço igualmente */
+    align-items: center;         /* Alinha verticalmente ao centro */
+    gap: 2rem;
+}
+.footer__branding, .footer__company-info, .footer__links {
+    flex: 1 1 220px; /* Aumentei um pouco a base para dar mais espaço */
+    margin-bottom: 1.5rem;
+     /* text-align será definido abaixo ou herdado */
+}
+.footer__branding { display: flex; flex-direction: column; align-items: center; } /* Mantém centralizado DENTRO da coluna */
 .footer__logo img { max-width: 150px; height: auto; margin-bottom: 1rem; }
 .footer__social { display: flex; gap: 1.2rem; align-items: center; }
 .footer__social a { color: var(--grey-text); font-size: 1.5rem; transition: color 0.3s ease; display: inline-flex; align-items: center; }
 .footer__social a:hover { color: var(--primary-color); }
-.footer__company-info { text-align: center; }
+.footer__company-info { text-align: center; } /* Mantém info centralizada */
 .footer__company-info p { margin-bottom: 0.5rem; line-height: 1.5; }
 .footer__company-info p strong { color: var(--dark-text); }
-.footer__links { text-align: center; flex-basis: 100%; margin-top: 1rem; }
+.footer__links { text-align: center; } /* Mantém links centralizados */
 .footer__links a { color: var(--grey-text); margin: 0 0.75rem; transition: color 0.3s ease; font-size: 0.85rem; }
 .footer__links a:hover { color: var(--primary-color); }
 
 /* Botão Flutuante WhatsApp */
-.whatsapp-float {
-    position: fixed;
-    width: 55px;
-    height: 55px;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25D366;
-    color: #FFF;
-    border-radius: 50%;
-    display: flex; /* Necessário para centralizar ícone */
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-    text-decoration: none;
-    /* Garanta que não está sendo sobrescrito por display: none; */
-    opacity: 1;
-    visibility: visible;
-}
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
+.whatsapp-float { position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px; background-color: #25D366; color: #FFF; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2rem; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); z-index: 100; transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; text-decoration: none; opacity: 1; visibility: visible; }
+.whatsapp-float:hover { transform: scale(1.1); }
 
 /* Botão Voltar ao Topo */
-.back-to-top {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    bottom: 90px; /* Ajuste para ficar acima do botão do WhatsApp */
-    right: 32.5px; /* Próximo ao botão do WhatsApp */
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    border-radius: 50%;
-    display: none; /* Começa escondido, JS controla com a classe 'active' */
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-    z-index: 99;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-    opacity: 0;
-    visibility: hidden;
-}
-.back-to-top.active { /* Estilo quando o botão deve aparecer (controlado via JS) */
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-}
-.back-to-top:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.1);
-}
+.back-to-top { position: fixed; width: 40px; height: 40px; bottom: 90px; right: 32.5px; background-color: var(--primary-color); color: var(--light-text); border-radius: 50%; display: none; justify-content: center; align-items: center; font-size: 1.2rem; box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15); z-index: 99; transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; text-decoration: none; opacity: 0; visibility: hidden; }
+.back-to-top.active { display: flex; opacity: 1; visibility: visible; }
+.back-to-top:hover { background-color: var(--secondary-color); transform: scale(1.1); }
 
-/* ============================================= */
-/* Estilos para o Banner de Cookies              */
-/* ============================================= */
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--dark-text);
-    color: var(--light-text);
-    padding: 1rem 1.5rem;
-    z-index: 1000;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.9rem;
-    display: none; /* JS controla */
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+/* Estilos para o Banner de Cookies */
+/* ... (mantém o restante igual) ... */
+.cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: var(--dark-text); color: var(--light-text); padding: 1rem 1.5rem; z-index: 1000; align-items: center; gap: 1rem; font-size: 0.9rem; display: none; flex-wrap: wrap; justify-content: space-between; }
 .cookie-banner__text { margin: 0; flex-grow: 1; line-height: 1.5; }
 .cookie-banner__text a { color: var(--secondary-color); text-decoration: underline; }
 .cookie-banner__text a:hover { color: var(--light-text); }
@@ -276,22 +212,46 @@ option { color: var(--dark-text); }
 .button--secondary-cookie:hover { background-color: rgba(255, 255, 255, 0.1); }
 
 
-/* ============================================= */
-/* Media Queries (Inclui ajustes do banner)      */
-/* ============================================= */
-@media (max-width: 768px) { /* Ajustes gerais Mobile (até Tablet) */
-     h1 { font-size: 2.4rem; }
-     h2 { font-size: 2rem; }
+/* Estilos para o Modal de Preferências */
+/* ... (mantém o restante igual) ... */
+.cookie-prefs-modal { display: none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; }
+.cookie-prefs-modal__overlay { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); }
+.cookie-prefs-modal__content { position: relative; background-color: #FFFFFF; color: var(--dark-text); margin: 10vh auto; padding: 2.5rem; border-radius: var(--border-radius); max-width: 600px; width: 90%; box-shadow: 0 5px 25px rgba(0,0,0,0.2); z-index: 1051; }
+.cookie-prefs-modal__close-btn { position: absolute; top: 1rem; right: 1.5rem; color: var(--grey-text); font-size: 2rem; font-weight: bold; line-height: 1; border: none; background: none; cursor: pointer; }
+.cookie-prefs-modal__close-btn:hover { color: var(--dark-text); }
+.cookie-prefs-modal h2 { margin-top: 0; margin-bottom: 1rem; text-align: left; }
+.cookie-prefs-modal p { font-size: 0.95rem; color: var(--grey-text); margin-bottom: 1.5rem; }
+.cookie-prefs-category { border-top: 1px solid var(--border-color); padding: 1.5rem 0; display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; }
+.cookie-prefs-category:last-of-type { border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+.cookie-prefs-category h4 { grid-column: 1 / -1; margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--primary-color); }
+.cookie-prefs-category p { margin-bottom: 0; font-size: 0.85rem; grid-column: 2 / 3; padding-left: 0.5rem; }
+.cookie-prefs-toggle { position: relative; display: inline-block; width: 50px; height: 26px; grid-column: 1 / 2; justify-self: center; }
+.cookie-prefs-toggle input { opacity: 0; width: 0; height: 0; }
+.cookie-prefs-toggle__slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 26px; }
+.cookie-prefs-toggle__slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+.cookie-prefs-toggle input:checked + .cookie-prefs-toggle__slider { background-color: var(--primary-color); }
+.cookie-prefs-toggle input:disabled + .cookie-prefs-toggle__slider { background-color: #ddd; cursor: not-allowed; }
+.cookie-prefs-toggle input:disabled:checked + .cookie-prefs-toggle__slider { background-color: var(--secondary-color); }
+.cookie-prefs-toggle input:focus + .cookie-prefs-toggle__slider { box-shadow: 0 0 1px var(--primary-color); }
+.cookie-prefs-toggle input:checked + .cookie-prefs-toggle__slider:before { transform: translateX(24px); }
+.cookie-prefs-actions { margin-top: 2rem; text-align: right; }
+.cookie-prefs-actions .button { margin-left: 0.5rem; }
 
-    .cookie-banner {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-    }
-    .cookie-banner__actions {
-        justify-content: center;
-        margin-top: 0.5rem;
-    }
+/* ============================================= */
+/* Media Queries (Ajustes finais)               */
+/* ============================================= */
+@media (max-width: 768px) { /* Ajustes mobile banner/modal */
+     /* ... (h1, h2, cookie banner styles igual antes) ... */
+    .cookie-banner { flex-direction: column; align-items: stretch; text-align: center; }
+    .cookie-banner__actions { justify-content: center; margin-top: 0.5rem; }
+    .cookie-prefs-modal__content { width: 95%; margin: 5vh auto; padding: 1.5rem; }
+    .cookie-prefs-modal__close-btn { top: 0.5rem; right: 1rem; }
+    .cookie-prefs-category { grid-template-columns: 1fr; text-align: center; }
+    .cookie-prefs-category h4 { margin-bottom: 0.8rem;}
+    .cookie-prefs-toggle { justify-self: center; margin-bottom: 0.5rem;}
+    .cookie-prefs-category p { grid-column: 1 / -1; padding-left: 0; }
+    .cookie-prefs-actions { text-align: center; }
+    .cookie-prefs-actions .button { width: 100%; margin-top: 0.5rem; margin-left: 0;}
 }
 
 @media (min-width: 768px) { /* A partir de Tablet */
@@ -299,25 +259,19 @@ option { color: var(--dark-text); }
     h2 { font-size: 2.5rem; }
     .final-cta__container { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: flex-start; }
     .landing-page__final-cta h2 { text-align: left; }
-    .footer__container { text-align: left; }
-    .footer__branding, .footer__company-info { flex: 1; text-align: left; margin-bottom: 0; }
-    .footer__company-info { text-align: right; }
+    .footer__container { /* justify-content e align-items definidos na base agora */ }
+    .footer__branding, .footer__company-info { flex: 1; text-align: left; margin-bottom: 0; } /* Mantém texto à esquerda */
+    .footer__company-info { /* text-align: right; Removido, usa o da base */ }
     .footer__links { flex-basis: 100%; text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
-
-    .professionals__grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-    }
+    .professionals__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 992px) { /* A partir de Desktop */
      h1 { font-size: 3.8rem; }
      h2 { font-size: 2.75rem; }
-     .footer__container { }
+     .footer__container { /* justify-content e align-items definidos na base agora */ }
      .footer__branding, .footer__company-info, .footer__links { flex: 1; }
-     .footer__company-info { text-align: center; }
-     .footer__links { flex-basis: auto; text-align: right; margin-top: 0; padding-top: 0; border-top: none; }
-
-     .professionals__grid {
-        grid-template-columns: repeat(2, 1fr); /* Mantendo 2 colunas */
-    }
+     .footer__company-info { text-align: center; } /* Info centraliza no desktop */
+     .footer__links { flex-basis: auto; text-align: center; margin-top: 0; padding-top: 0; border-top: none; } /* Links centralizam no desktop */
+     .professionals__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1200px) { /* Ajustes finos opcionais */ }
